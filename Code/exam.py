@@ -118,8 +118,9 @@ for i in range(len(exam_in_page)-1):
     page_num += 1
 
 ###pdf作成###
-merger.write('../../exam.pdf')
+desktop_path = os.path.expanduser('~') + '/desktop/'
+merger.write(desktop_path + 'exam.pdf')
 merger.close()
 
 ###バックナンバーを保存###
-shutil.copy('../../exam.pdf', '../BackNumber/exam'+str(dt_today.date())+'.pdf')
+shutil.copy(desktop_path + 'exam.pdf', '../BackNumber/exam'+str(dt_today.date())+'.pdf')
