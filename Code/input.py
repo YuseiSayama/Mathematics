@@ -10,7 +10,10 @@ files = os.listdir(path)
 files_list = [f for f in files if os.path.isfile(os.path.join(path, f))]
 
 ###.DS_Storeを除く###
-files_list.remove('.DS_Store')
+try:
+    files_list.remove('.DS_Store')
+except ValueError:
+    pass
 
 ###name.txtを読み込み###
 with open('../data/name.txt') as f:
