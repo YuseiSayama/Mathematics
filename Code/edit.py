@@ -42,7 +42,10 @@ files = os.listdir(path)
 files_list = [f for f in files if os.path.isfile(os.path.join(path, f))]
 
 ###.DS_Storeを除く###
-files_list.remove('.DS_Store')
+try:
+    files_list.remove('.DS_Store')
+except ValueError:
+    pass
 
 ###画像の分割###
 def trimming(image,num):
